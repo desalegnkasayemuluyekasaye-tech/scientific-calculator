@@ -191,7 +191,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you encounter any issues or have questions:
 - 🐛 **Report bugs** by opening an issue
 - 💡 **Request features** through GitHub issues
-- 📧 **Contact:** [your-email@example.com]
+- 📧 **Contact:** [desalegnkasayemuluyekasaye@gmail.com]
 - 🌟 **Star this repo** if you find it useful!
 
 ---
