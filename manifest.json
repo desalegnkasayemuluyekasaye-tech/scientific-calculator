@@ -1,0 +1,79 @@
+{
+  "name": "Advanced Scientific Calculator",
+  "short_name": "SciCalc",
+  "description": "A comprehensive scientific calculator with binomial theorem, graphing, and advanced mathematical functions",
+  "start_url": "./calculate.htm",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "utilities", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "./",
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Advanced Scientific Calculator - Desktop View"
+    },
+    {
+      "src": "screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Advanced Scientific Calculator - Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Basic Calculator",
+      "short_name": "Basic",
+      "description": "Open basic calculator mode",
+      "url": "./calculate.htm?mode=basic",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Graphing Calculator",
+      "short_name": "Graph",
+      "description": "Open graphing calculator mode",
+      "url": "./calculate.htm?mode=grapher",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Binomial Calculator",
+      "short_name": "Binomial",
+      "description": "Open binomial theorem calculator",
+      "url": "./calculate.htm?mode=combinatorics",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
