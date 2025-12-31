@@ -4,7 +4,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 
 ## 🚀 **Live Demo**
 
-**[Try the Calculator](https://desalegnkasayemuluyekasaye-tech.github.io/scientific-calculator)** ← Replace with your actual URL
+**[Try the Calculator](https://github.com/desalegnkasayemuluyekasaye-tech/scientific-calculator)** 
 
 ## ✨ **Features**
 
