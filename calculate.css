@@ -92,6 +92,69 @@ body {
     border-radius: 12px;
 }
 
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin-right: 0.5rem;
+}
+.hamburger-lines {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-light);
+    position: relative;
+}
+.hamburger-lines::before,
+.hamburger-lines::after {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--text-light); position: absolute; left: 0;
+}
+.hamburger-lines::before { top: -7px; }
+.hamburger-lines::after { top: 7px; }
+
+.hamburger-menu {
+    position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: var(--bg-dark); box-shadow: 2px 0 30px rgba(0,0,0,0.4); z-index: 2000; transform: translateX(-110%); transition: transform 0.28s ease;
+}
+.hamburger-menu.hidden { transform: translateX(-110%); }
+.hamburger-menu.open { transform: translateX(0); }
+.hamburger-menu-inner { padding: 1.25rem; }
+.close-menu { background: transparent; border: none; color: var(--text-light); font-size: 1.75rem; float: right; cursor: pointer; }
+.menu-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.menu-list button { background: transparent; border: none; color: var(--text-light); text-align: left; font-size: 1rem; padding: 0.75rem; border-radius: 8px; cursor: pointer; }
+.menu-list button:hover { background: var(--bg-darker); }
+
+/* Back to Main button shown after clearing history */
+.back-to-main-btn {
+    display: inline-block; margin: 1rem auto; padding: 0.75rem 1rem; background: var(--primary); color: white; border-radius: 8px; border: none; cursor: pointer; font-weight: 700;
+}
+
+/* Compact back-arrow button inside cleared history */
+.back-arrow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.85rem;
+    background: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 1rem auto;
+}
+.back-arrow-btn:hover {
+    background: var(--bg-darker);
+}
+.back-arrow {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--primary);
+}
+
+
 .mode-btn {
     padding: 0.5rem 1rem;
     background: transparent;
@@ -519,6 +582,9 @@ body {
     .mode-btn {
         flex: 1;
     }
+
+    .hamburger { display: inline-block; }
+    .mode-toggle { display: none; }
 }
 
 @media (max-width: 480px) {

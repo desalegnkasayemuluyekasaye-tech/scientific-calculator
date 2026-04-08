@@ -2,7 +2,7 @@
   "name": "Advanced Scientific Calculator",
   "short_name": "SciCalc",
   "description": "A comprehensive scientific calculator with binomial theorem, graphing, and advanced mathematical functions",
-  "start_url": "./calculate.htm",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#1e293b",
   "theme_color": "#6366f1",

@@ -1,10 +1,16 @@
 // Service Worker for Advanced Scientific Calculator
 const CACHE_NAME = 'sci-calc-v1.0.0';
 const urlsToCache = [
+  './',
+  './index.html',
   './calculate.htm',
   './calculate.js',
   './calculate.css',
   './manifest.json',
+  './icon-16.png',
+  './icon-32.png',
+  './icon-192.png',
+  './icon-512.png',
   'https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];

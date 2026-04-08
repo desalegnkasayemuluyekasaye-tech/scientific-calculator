@@ -4,11 +4,12 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 
 ## 🚀 **Live Demo**
 
-**[Try the Calculator](https://github.com/desalegnkasayemuluyekasaye-tech/scientific-calculator)** 
+**[Try the Calculator](https://github.com/desalegnkasayemuluyekasaye-tech/scientific-calculator)**
 
 ## ✨ **Features**
 
 ### 📱 **Progressive Web App**
+
 - ✅ **Installable** on any device (phones, tablets, computers)
 - ✅ **Works offline** with service worker caching
 - ✅ **App-like experience** with custom icon and full-screen mode
@@ -18,12 +19,14 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 ### 🧮 **Calculator Modes**
 
 #### **Basic Calculator**
+
 - Standard arithmetic operations (+, -, ×, ÷)
 - Memory functions (MS, MR, MC, M+, M-)
 - Percentage calculations
 - Sign toggle and backspace
 
 #### **Advanced Scientific**
+
 - Trigonometric functions (sin, cos, tan, sec, csc, cot)
 - Inverse trigonometric functions
 - Logarithmic functions (log, ln, log₂)
@@ -33,6 +36,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 - Angle mode switching (degrees/radians)
 
 #### **Binomial Theorem Calculator**
+
 - Full binomial expansion: (a + b)ⁿ
 - Specific term calculation
 - Coefficient finder
@@ -42,6 +46,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 - Two-variable binomial expansions
 
 #### **Advanced Function Grapher**
+
 - Plot multiple functions simultaneously
 - Support for polynomial, trigonometric, exponential, and logarithmic functions
 - Interactive zoom and pan
@@ -50,6 +55,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 - Real-time function preview
 
 #### **Combinatorics & Statistics**
+
 - Permutations P(n,r)
 - Combinations C(n,r)
 - Factorial calculations
@@ -57,6 +63,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 - Quick combinatorics functions
 
 #### **Additional Features**
+
 - Calculus operations (derivatives, integrals)
 - Equation solver
 - Polynomial operations
@@ -77,12 +84,14 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 ## 📱 **Installation**
 
 ### **On Mobile Devices:**
+
 1. Open the calculator URL in your mobile browser
 2. Look for "Add to Home Screen" or "Install" prompt
 3. Tap "Install" to add the app to your home screen
 4. Launch like any native app!
 
 ### **On Desktop:**
+
 1. Open the calculator URL in Chrome, Edge, or Firefox
 2. Look for the install button (⊕) in the address bar
 3. Click "Install" to add to your applications
@@ -91,12 +100,14 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 ## 🚀 **Getting Started**
 
 ### **Basic Usage:**
+
 1. **Select a mode** using the tabs at the top
 2. **Enter calculations** using the on-screen buttons or keyboard
 3. **View history** by clicking the history button
 4. **Switch between modes** for different mathematical operations
 
 ### **Advanced Features:**
+
 - **Binomial Expansion:** Enter expressions like `(x + 2)^5` or `(2x - 3/x)^4`
 - **Graphing:** Add multiple functions and customize the display
 - **Scientific Functions:** Use trigonometric and logarithmic operations
@@ -113,6 +124,7 @@ A comprehensive Progressive Web App (PWA) calculator with advanced mathematical 
 ## 🔧 **Development**
 
 ### **Local Development:**
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/scientific-calculator.git
@@ -129,7 +141,12 @@ python -m http.server 8000
 npx serve .
 ```
 
+### **Deployment Note**
+
+- When deploying to static hosts (GitHub Pages, Netlify, etc.), ensure an `index.html` exists at the site root. This repository includes `index.html` which redirects to `calculate.htm` so the site root won't return a 404.
+
 ### **File Structure:**
+
 ```
 📁 scientific-calculator/
 ├── 📄 calculate.htm          # Main HTML file
@@ -147,18 +164,21 @@ npx serve .
 ## 🌟 **Key Features Showcase**
 
 ### **Binomial Theorem Excellence**
+
 - Handles complex expressions like `(x - 4/x)^6`
 - Finds constant terms automatically
 - Supports multi-variable expansions
 - Shows step-by-step calculations
 
 ### **Advanced Graphing**
+
 - Plot functions like `sin(x) * exp(-x/5)`
 - Interactive coordinate display
 - Multiple functions with different colors
 - Zoom, pan, and analysis tools
 
 ### **PWA Benefits**
+
 - Works completely offline
 - Installs like a native app
 - Fast loading with caching
@@ -169,6 +189,7 @@ npx serve .
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ### **Areas for Contribution:**
+
 - Additional mathematical functions
 - UI/UX improvements
 - Performance optimizations
@@ -189,6 +210,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 **Support**
 
 If you encounter any issues or have questions:
+
 - 🐛 **Report bugs** by opening an issue
 - 💡 **Request features** through GitHub issues
 - 📧 **Contact:** [desalegnkasayemuluyekasaye@gmail.com]
@@ -198,4 +220,4 @@ If you encounter any issues or have questions:
 
 **Made with ❤️ for the mathematical community**
 
-*Transform your device into a powerful scientific calculator with just one click!*
+_Transform your device into a powerful scientific calculator with just one click!_

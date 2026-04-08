@@ -17,6 +17,61 @@ const memoryValue = document.getElementById('memoryValue');
 document.addEventListener('DOMContentLoaded', () => {
     loadHistory();
     updateDisplay();
+    // Hook up hamburger menu handlers
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const menuInstallBtn = document.getElementById('menuInstallBtn');
+
+    if (hamburgerBtn && hamburgerMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('hidden');
+            hamburgerMenu.classList.add('open');
+            hamburgerMenu.setAttribute('aria-hidden', 'false');
+            // when hamburger menu opens, hide the top mode toggle for clarity
+            const modeToggle = document.querySelector('.mode-toggle');
+            if (modeToggle) modeToggle.style.display = 'none';
+        });
+    }
+
+    if (closeMenuBtn && hamburgerMenu) {
+        closeMenuBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+            hamburgerMenu.classList.add('hidden');
+            hamburgerMenu.setAttribute('aria-hidden', 'true');
+            // restore mode toggle visibility based on viewport
+            const modeToggle = document.querySelector('.mode-toggle');
+            if (modeToggle) {
+                // allow CSS to control it on larger screens
+                modeToggle.style.display = '';
+            }
+        });
+    }
+
+    // Ensure mode-toggle is hidden whenever the hamburger is visible (responsive fallback)
+    function updateNavVisibility() {
+        const hamburgerStyles = window.getComputedStyle(hamburgerBtn || document.createElement('div'));
+        const modeToggle = document.querySelector('.mode-toggle');
+        if (!modeToggle) return;
+        if (hamburgerStyles && hamburgerStyles.display !== 'none') {
+            modeToggle.style.display = 'none';
+        } else {
+            modeToggle.style.display = '';
+        }
+    }
+
+    window.addEventListener('resize', updateNavVisibility);
+    // initial call
+    updateNavVisibility();
+
+    // Install via menu uses the same install button created in HTML
+    if (menuInstallBtn) {
+        menuInstallBtn.addEventListener('click', () => {
+            // Try to trigger the install button if available, else show prompt
+            const installBtn = document.querySelector('.install-button');
+            if (installBtn) installBtn.click();
+        });
+    }
 });
 
 // Mode switching
@@ -483,6 +538,25 @@ function clearHistory() {
         history = [];
         saveHistory();
         renderHistory();
+        // After clearing, show a prominent Back to Main button inside history
+        const historyList = document.getElementById('historyList');
+        historyList.innerHTML = '';
+        // Create a back-arrow button for a compact UI
+        const backBtn = document.createElement('button');
+        backBtn.className = 'back-arrow-btn';
+        backBtn.innerHTML = '<span class="back-arrow">\u2190</span> Back';
+        backBtn.setAttribute('aria-label', 'Back to Main');
+        backBtn.addEventListener('click', () => {
+            const historyPanel = document.getElementById('historyPanel');
+            if (historyPanel) historyPanel.classList.remove('active');
+            switchMode('basic');
+        });
+        historyList.appendChild(backBtn);
+        // Make sure history panel is visible so the button is accessible
+        const historyPanel = document.getElementById('historyPanel');
+        if (historyPanel) historyPanel.classList.add('active');
+        // Focus the button for accessibility
+        backBtn.focus();
     }
 }
 
@@ -670,7 +744,8 @@ function setBinomialMode(mode) {
     
     // Update button states
     document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    const binBtn = Array.from(document.querySelectorAll('.btn-option')).find(b => b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${mode}'`));
+    if (binBtn) binBtn.classList.add('active');
     
     // Show/hide relevant input groups
     document.getElementById('termInputGroup').style.display = 'none';
@@ -1147,7 +1222,8 @@ function setCoeffMode(mode) {
     
     // Update button states
     document.querySelectorAll('.btn-tab').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    const coeffBtn = Array.from(document.querySelectorAll('.btn-tab')).find(b => b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${mode}'`));
+    if (coeffBtn) coeffBtn.classList.add('active');
     
     // Show/hide relevant modes
     document.getElementById('singleVarMode').style.display = mode === 'single' ? 'block' : 'none';
@@ -1513,7 +1589,8 @@ function loadExample(a, b, n) {
         setBinomialMode('constant');
         // Manually trigger the mode change since event.target won't be available
         document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('[onclick*="constant"]').classList.add('active');
+        const constBtn = document.querySelector('.binomial-options [onclick*="constant"]');
+        if (constBtn) constBtn.classList.add('active');
     }
     
     showNotification(`Loaded example: (${a} + ${b})^${n}`);
@@ -1528,7 +1605,8 @@ function setMultinomialMode(mode) {
     
     // Update button states
     document.querySelectorAll('.multinomial-options .btn-option').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    const multiBtn = Array.from(document.querySelectorAll('.multinomial-options .btn-option')).find(b => b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${mode}'`));
+    if (multiBtn) multiBtn.classList.add('active');
     
     // Show/hide coefficient input
     const coeffGroup = document.getElementById('multinomialCoeffGroup');
@@ -4717,7 +4795,8 @@ function setPolynomialOperation(operation) {
     
     // Update tab states
     document.querySelectorAll('.operation-tabs .btn-tab').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    const opBtn = document.querySelector(`.operation-tabs .btn-tab[onclick*="${operation}"]`);
+    if (opBtn) opBtn.classList.add('active');
     
     // Show/hide operation content
     document.querySelectorAll('.operation-content').forEach(content => content.classList.add('hidden'));
@@ -5497,7 +5576,8 @@ function setFunctionType(type) {
     
     // Update tab states
     document.querySelectorAll('.function-tabs .btn-tab').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    const fnBtn = document.querySelector(`.function-tabs .btn-tab[onclick*="${type}"]`);
+    if (fnBtn) fnBtn.classList.add('active');
     
     updateFunctionInputs();
 }
@@ -5861,8 +5941,8 @@ function evaluateFunction(expression, x) {
             .replace(/\bround\b/g, 'Math.round')
             .replace(/\^/g, '**');
         
-        // Handle angle mode for trigonometric functions
-        const angleMode = document.getElementById('angleMode')?.value || 'radians';
+        // Handle angle mode for trigonometric functions (graph controls)
+        const angleMode = document.getElementById('graphAngleMode')?.value || 'radians';
         if (angleMode === 'degrees') {
             expr = expr
                 .replace(/Math\.sin\(/g, 'Math.sin(Math.PI/180*')

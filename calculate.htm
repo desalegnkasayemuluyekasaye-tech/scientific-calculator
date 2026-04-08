@@ -30,6 +30,10 @@
         <div class="calculator">
             <!-- Header -->
             <div class="calc-header">
+                <!-- Hamburger menu button for small screens -->
+                <button id="hamburgerBtn" class="hamburger" aria-label="Open menu">
+                    <span class="hamburger-lines"></span>
+                </button>
                 <div class="header-left">
                     <i class="fas fa-calculator"></i>
                     <h1>Scientific Calculator</h1>
@@ -45,6 +49,25 @@
                     <button class="mode-btn" data-mode="gpa">GPA</button>
                 </div>
             </div>
+
+            <!-- Hamburger menu panel -->
+            <nav id="hamburgerMenu" class="hamburger-menu hidden" aria-hidden="true">
+                <div class="hamburger-menu-inner">
+                    <button id="closeMenuBtn" class="close-menu" aria-label="Close menu">&times;</button>
+                    <ul class="menu-list">
+                        <li><button onclick="switchMode('basic')">Basic</button></li>
+                        <li><button onclick="switchMode('advanced')">Advanced</button></li>
+                        <li><button onclick="switchMode('calculus')">Calculus</button></li>
+                        <li><button onclick="switchMode('polynomial')">Polynomial</button></li>
+                        <li><button onclick="switchMode('grapher')">Grapher</button></li>
+                        <li><button onclick="switchMode('combinatorics')">Combinatorics</button></li>
+                        <li><button onclick="switchMode('matrix')">Matrix</button></li>
+                        <li><button onclick="switchMode('gpa')">GPA</button></li>
+                        <li><button onclick="toggleHistory()">History</button></li>
+                        <li><button id="menuInstallBtn">Install App</button></li>
+                    </ul>
+                </div>
+            </nav>
 
             <!-- Display -->
             <div class="display-section">
@@ -634,7 +657,7 @@
                                 </div>
                                 <div class="precision-group">
                                     <label>Angle Mode:</label>
-                                    <select id="angleMode">
+                                    <select id="graphAngleMode">
                                         <option value="radians" selected>Radians</option>
                                         <option value="degrees">Degrees</option>
                                     </select>
@@ -688,60 +711,6 @@
                                 <button class="btn btn-example" onclick="loadExample('2*sin(3*x + pi/4)')">2sin(3x + π/4)</button>
                                 <button class="btn btn-example" onclick="loadExample('tan(x)')">tan(x)</button>
                                 <button class="btn btn-example" onclick="loadExample('sin(x) + cos(2*x)')">sin(x) + cos(2x)</button>
-                            </div>
-                        </div>
-                        
-                        <div class="example-category">
-                            <h4>Exponential & Logarithmic</h4>
-                            <div class="example-functions">
-                                <button class="btn btn-example" onclick="loadExample('exp(x)')">e^x</button>
-                                <button class="btn btn-example" onclick="loadExample('2^x')">2^x</button>
-                                <button class="btn btn-example" onclick="loadExample('log(x)')">log(x)</button>
-                                <button class="btn btn-example" onclick="loadExample('ln(x)')">ln(x)</button>
-                                <button class="btn btn-example" onclick="loadExample('exp(-x^2)')">e^(-x²)</button>
-                            </div>
-                        </div>
-                        
-                        <div class="example-category">
-                            <h4>High-Degree Polynomials</h4>
-                            <div class="example-functions">
-                                <button class="btn btn-example" onclick="loadExample('x^5 - 5*x^3 + 4*x')">x⁵ - 5x³ + 4x</button>
-                                <button class="btn btn-example" onclick="loadExample('x^6 - 7*x^4 + 6*x^2')">x⁶ - 7x⁴ + 6x²</button>
-                                <button class="btn btn-example" onclick="loadExample('0.1*x^8 - x^6 + 2*x^4 - x^2')">0.1x⁸ - x⁶ + 2x⁴ - x²</button>
-                            </div>
-                        </div>
-                        
-                        <div class="example-category">
-                            <h4>Complex Functions</h4>
-                            <div class="example-functions">
-                                <button class="btn btn-example" onclick="loadFunctionExample('complex')">sin(x)·e^(-x/5)</button>
-                                <button class="btn btn-example" onclick="loadFunctionExample('oscillating')">x·sin(1/x)</button>
-                                <button class="btn btn-example" onclick="loadFunctionExample('rational')">1/(x^2 + 1)</button>
-                                <button class="btn btn-example" onclick="loadFunctionExample('piecewise')">abs(x) - 2</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Graph Analysis Section -->
-                <div class="grapher-section">
-                    <h3><i class="fas fa-calculator"></i> Function Analysis</h3>
-                    <div class="analysis-tools">
-                        <div class="analysis-input">
-                            <label>Analyze function at x =</label>
-                            <input type="number" id="analysisX" placeholder="0" step="0.1">
-                            <button class="btn btn-analyze" onclick="analyzeAtPoint()">
-                                <i class="fas fa-search"></i> Analyze
-                            </button>
-                        </div>
-                        <div class="analysis-result" id="analysisResult">
-                            <p class="no-result">Enter an x-value to analyze active functions at that point</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                                <button class="btn btn-example" onclick="loadExample('abs(sin(x))')">|sin(x)|</button>
-                                <button class="btn btn-example" onclick="loadExample('sqrt(abs(x))')">√|x|</button>
                             </div>
                         </div>
                     </div>
